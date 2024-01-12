@@ -1,11 +1,15 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
+
+console.log({userId: process.env.GOOGLE_ID,
+    userSecret:process.env.GOOGLE_CLIENT_SECRET,})
+    
 const handler = NextAuth({
     providers:[
         GoogleProvider({
-            userId: '',
-            userSecret:'',
+            userId: process.env.GOOGLE_ID,
+            userSecret:process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
     async session ({session}){
