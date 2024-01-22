@@ -3,12 +3,12 @@ import GoogleProvider from 'next-auth/providers/google';
 import { connectToDb } from '@utils/database';
 import User from '@models/user';
 
-    
+
 const handler = NextAuth({
     providers:[
         GoogleProvider({
-            userId: process.env.GOOGLE_ID,
-            userSecret:process.env.GOOGLE_CLIENT_SECRET,
+            clientId: process.env.GOOGLE_ID,
+            clientSecret:process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
     async session ({session}){
